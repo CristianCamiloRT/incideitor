@@ -1,36 +1,53 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Ticket $ticket
- * @var string[]|\Cake\Collection\CollectionInterface $users
- */
-?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $ticket->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Tickets'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="tickets form content">
+    <div class="col-12 column-responsive">
+        <div class="card">
+			<div class="card-header">
+				<h5 class="card-title mb-0">Editar Ticket</h5>
+			</div>
             <?= $this->Form->create($ticket) ?>
-            <fieldset>
-                <legend><?= __('Edit Ticket') ?></legend>
-                <?php
-                    echo $this->Form->control('ticket');
-                    echo $this->Form->control('status');
-                    echo $this->Form->control('comment');
-                    echo $this->Form->control('user_id', ['options' => $users]);
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+			    <div class="row card-body">
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->textarea('ticket', [
+                                'class' => 'form-control',
+                                'placeholder' => 'Escriba el problema presentado',
+                                'type' => 'text',
+                                'label' => false
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->textarea('comment', [
+                                'class' => 'form-control',
+                                'placeholder' => 'Escriba la solución presentada',
+                                'type' => 'email',
+                                'label' => false
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->control('user_id', [
+                                'options' => $users, 
+                                'class' => 'form-select',
+                                'placeholder' => 'Seleccione un rol',
+                                'label' => false
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->control('status',  [
+                                'label' => 'Estado ticket'
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary m-b-10 m-l-5']) ?>
+                    </div>
+                </div>
             <?= $this->Form->end() ?>
-        </div>
+		</div>
     </div>
 </div>
