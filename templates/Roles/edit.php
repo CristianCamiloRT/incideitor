@@ -1,32 +1,26 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Role $role
- */
-?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $role->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $role->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Roles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="roles form content">
+    <div class="col-12 column-responsive">
+        <div class="card">
+			<div class="card-header">
+				<h5 class="card-title mb-0">Editar Usuario</h5>
+			</div>
             <?= $this->Form->create($role) ?>
-            <fieldset>
-                <legend><?= __('Edit Role') ?></legend>
-                <?php
-                    echo $this->Form->control('role');
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <div class="row card-body">
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->control('role', [
+                                'class' => 'form-control',
+                                'placeholder' => 'Nombre del Rol',
+                                'type' => 'text',
+                                'label' => false
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary m-b-10 m-l-5']) ?>
+                    </div>
+                </div>
             <?= $this->Form->end() ?>
-        </div>
+		</div>
     </div>
 </div>
