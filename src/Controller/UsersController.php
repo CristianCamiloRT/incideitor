@@ -37,7 +37,10 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $roles = $this->Users->Roles->find('list', ['limit' => 200]);
+        $roles = $this->Users->Roles->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'role',
+        ]);
         $this->set(compact('user', 'roles'));
     }
 
@@ -55,7 +58,10 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $roles = $this->Users->Roles->find('list', ['limit' => 200]);
+        $roles = $this->Users->Roles->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'role',
+        ]);
         $this->set(compact('user', 'roles'));
     }
 

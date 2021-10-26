@@ -1,32 +1,63 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\User $user
- * @var \Cake\Collection\CollectionInterface|string[] $roles
- */
-?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="users form content">
+    <div class="col-12 column-responsive">
+        <div class="card">
+			<div class="card-header">
+				<h5 class="card-title mb-0">Crear Usuario</h5>
+			</div>
             <?= $this->Form->create($user) ?>
-            <fieldset>
-                <legend><?= __('Add User') ?></legend>
-                <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('password');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('active');
-                    echo $this->Form->control('role_id', ['options' => $roles]);
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+			    <div class="row card-body">
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->control('name', [
+                                'class' => 'form-control',
+                                'placeholder' => 'Nombre completo',
+                                'type' => 'text',
+                                'label' => false
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->control('role_id', [
+                                'options' => $roles, 
+                                'class' => 'form-select',
+                                'placeholder' => 'Seleccione un rol',
+                                'label' => false
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->control('email', [
+                                'class' => 'form-control',
+                                'placeholder' => 'Ingrese email',
+                                'type' => 'email',
+                                'label' => false
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->control('password', [
+                                'class' => 'form-control',
+                                'placeholder' => 'Ingrese contraseña',
+                                'type' => 'password',
+                                'label' => false
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?=
+                            $this->Form->control('active',  [
+                                'label' => 'Activo'
+                            ]);
+                        ?>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary m-b-10 m-l-5']) ?>
+                    </div>
+                </div>
             <?= $this->Form->end() ?>
-        </div>
+		</div>
     </div>
 </div>

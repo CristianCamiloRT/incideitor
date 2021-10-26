@@ -26,7 +26,7 @@
                             <td><?= h($user->active) ? '<span class="badge bg-success">Activo</span>' : '<span class="badge bg-danger">Inactivo</span>' ?></td>
                             <td><?= h($user->created) ?></td>
                             <td><?= h($user->modified) ?></td>
-                            <td><?= $user->has('role') ? $this->Html->link($user->role->id, ['controller' => 'Roles', 'action' => 'view', $user->role->id]) : '' ?></td>
+                            <td><?= $user->has('role') ? $this->Html->link($user->role->role, ['controller' => 'Roles', 'action' => 'view', $user->role->id]) : '' ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
