@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="index.html">
-            <span class="align-middle">AdminKit</span>
+            <span class="align-middle">Incideitor</span>
         </a>
         <?php $ruta = $this->request->getParam('controller'); ?>
         <ul class="sidebar-nav">
@@ -48,11 +48,11 @@
                 );?>
             </li>
 
-            <li class="sidebar-item">
+            <!-- <li class="sidebar-item">
                 <a class="sidebar-link" href="pages-sign-in.html">
                     <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
                 </a>
-            </li>
+            </li> -->
 
         </ul>
     </div>
