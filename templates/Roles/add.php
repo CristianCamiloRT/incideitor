@@ -2,7 +2,7 @@
     <div class="col-12 column-responsive">
         <div class="card">
 			<div class="card-header">
-				<h5 class="card-title mb-0">Editar Usuario</h5>
+				<h5 class="card-title mb-0">Crear Rol</h5>
 			</div>
             <?= $this->Form->create($role) ?>
             <div class="row card-body">

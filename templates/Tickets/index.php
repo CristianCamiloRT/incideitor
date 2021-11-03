@@ -1,8 +1,22 @@
 <div class="row">
     <div class="col-12 d-flex">
         <div class="card flex-fill table-responsive">
-            <div class="card-header">
-                <h5 class="card-title mb-0">Tickets</h5>
+            <div class="card-header row w-100 mx-auto d-flex align-items-center">
+                <div class="col-6">
+                    <h5 class="card-title mb-0">Tickets</h5>
+                </div>
+                <div class="col-6 text-end">
+                    <?php echo $this->Html->link('Crear Ticket', 
+                        [
+                            'controller' => 'Tickets',
+                            'action' => 'add'
+                        ],
+                        [
+                            'escape' => false,
+                            'class' => 'btn btn-primary'
+                        ]
+                    );?>
+                </div>
             </div>
             <table class="table table-hover my-0">
                 <thead>
