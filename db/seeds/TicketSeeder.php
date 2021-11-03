@@ -24,7 +24,7 @@ class TicketSeeder extends AbstractSeed
                 'modified' => date('Y-m-d H:i:s'),
                 'user_id'    => 2,
             ],[
-                'ticket'    => 'Se daño un mmodem',
+                'ticket'    => 'Se daño un modem',
                 'status'    => 0,
                 'comment'    => 'Sin solucionar',
                 'created' => date('Y-m-d H:i:s'),

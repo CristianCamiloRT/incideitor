@@ -27,11 +27,11 @@ class RolesController extends AppController
         if ($this->request->is('post')) {
             $role = $this->Roles->patchEntity($role, $this->request->getData());
             if ($this->Roles->save($role)) {
-                $this->Flash->success(__('The role has been saved.'));
+                $this->Flash->success(__('El rol se creo correctamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The role could not be saved. Please, try again.'));
+            $this->Flash->error(__('No se pudo guardar el rol, intentelo nuevamente.'));
         }
         $this->set(compact('role'));
     }
@@ -44,11 +44,11 @@ class RolesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $role = $this->Roles->patchEntity($role, $this->request->getData());
             if ($this->Roles->save($role)) {
-                $this->Flash->success(__('The role has been saved.'));
+                $this->Flash->success(__('El rol se modifico correctamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The role could not be saved. Please, try again.'));
+            $this->Flash->error(__('No se pudo guardar el rol, intentelo nuevamente.'));
         }
         $this->set(compact('role'));
     }
@@ -58,9 +58,9 @@ class RolesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $role = $this->Roles->get($id);
         if ($this->Roles->delete($role)) {
-            $this->Flash->success(__('The role has been deleted.'));
+            $this->Flash->success(__('El rol se elimino correctamente.'));
         } else {
-            $this->Flash->error(__('The role could not be deleted. Please, try again.'));
+            $this->Flash->error(__('No se pudo eliminar el rol, intentelo nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

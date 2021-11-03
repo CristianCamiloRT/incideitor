@@ -36,11 +36,11 @@ class TicketsController extends AppController
         if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
-                $this->Flash->success(__('The ticket has been saved.'));
+                $this->Flash->success(__('El ticket se creo correctamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
+            $this->Flash->error(__('No se pudo guardar el ticket, intentelo nuevamente.'));
         }
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);
         $this->set(compact('ticket', 'users'));
@@ -54,11 +54,11 @@ class TicketsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
-                $this->Flash->success(__('The ticket has been saved.'));
+                $this->Flash->success(__('El ticket se modifico correctamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
+            $this->Flash->error(__('No se pudo guardar el ticket, intentelo nuevamente.'));
         }
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);
         $this->set(compact('ticket', 'users'));
@@ -69,9 +69,9 @@ class TicketsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $ticket = $this->Tickets->get($id);
         if ($this->Tickets->delete($ticket)) {
-            $this->Flash->success(__('The ticket has been deleted.'));
+            $this->Flash->success(__('El ticket se elimino correctamente.'));
         } else {
-            $this->Flash->error(__('The ticket could not be deleted. Please, try again.'));
+            $this->Flash->error(__('No se pudo eliminar el ticket, intentelo nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);
