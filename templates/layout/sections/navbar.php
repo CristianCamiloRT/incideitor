@@ -148,21 +148,22 @@
 
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
                     <!-- <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" />  -->
-                    <span class="text-dark">Usuario Prueba</span>
+                    <span class="text-dark"><?= $this->Identity->get('name'); ?></span>
                 </a>
-                <!-- <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
-                            data-feather="user"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i>
-                        Analytics</a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i>
-                        Settings & Privacy</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help
-                        Center</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Log out</a>
-                </div> -->
+                        <?php echo $this->Html->link('<i class="align-middle me-1" data-feather="log-in"></i> Log out', 
+                            [
+                                'controller' => 'Users',
+                                'action' => 'logout'
+                            ],
+                            [
+                                'escape' => false,
+                                'class' => 'dropdown-item'
+                            ]
+                        );?>
+                </div>
             </li>
         </ul>
     </div>

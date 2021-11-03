@@ -21,18 +21,27 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <?php include 'sections/leftbar.php'?>
-        <div class="main">
-            <?php include 'sections/navbar.php'?>
-            <main class="content">
-                <div class="container-fluid p-0">
-                    <?= $this->Flash->render() ?>
-                    <?= $this->fetch('content') ?>
-                </div>
-            </main>
+    <?php if ($this->Identity->isLoggedIn()): ?>
+        <div class="wrapper">
+            <?php include 'sections/leftbar.php' ?>
+            <div class="main">
+                <?php include 'sections/navbar.php'?>
+                <main class="content">
+                    <div class="container-fluid p-0">
+                        <?= $this->Flash->render() ?>
+                        <?= $this->fetch('content') ?>
+                    </div>
+                </main>
+            </div>
         </div>
-    </div>
+    <?php else: ?>
+        <main class="d-flex w-100">
+		    <div class="container d-flex flex-column">
+                <?= $this->Flash->render() ?>
+                <?= $this->fetch('content') ?>
+            </div>
+        </main>
+    <?php endif; ?>
     <footer>
     </footer>
     <?= $this->Html->script(['app']) ?>

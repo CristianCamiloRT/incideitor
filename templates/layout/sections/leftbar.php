@@ -48,11 +48,18 @@
                 );?>
             </li>
 
-            <!-- <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-sign-in.html">
-                    <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
-                </a>
-            </li> -->
+            <li class="sidebar-item">
+                <?php echo $this->Html->link('<i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Log out</span>', 
+                    [
+                        'controller' => 'Users',
+                        'action' => 'logout'
+                    ],
+                    [
+                        'escape' => false,
+                        'class' => 'sidebar-link'
+                    ]
+                );?>
+            </li>
 
         </ul>
     </div>
