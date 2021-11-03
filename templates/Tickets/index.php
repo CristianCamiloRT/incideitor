@@ -42,7 +42,9 @@
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $ticket->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $ticket->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $ticket->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id)]) ?>
+                                <?php if ($this->Identity->get('role_id') == 1) : ?>
+                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $ticket->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id)]) ?>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

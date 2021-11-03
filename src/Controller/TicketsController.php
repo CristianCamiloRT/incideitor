@@ -4,14 +4,20 @@ declare(strict_types=1);
 namespace App\Controller;
 
 class TicketsController extends AppController
-{
+{   
     public function index()
     {
         $this->paginate = [
             'contain' => ['Users'],
         ];
-        $tickets = $this->paginate($this->Tickets);
 
+        $identity = $this->request->getAttribute('authentication')->getIdentity();
+        
+        if ($identity['role_id'] == 1) {
+            $tickets = $this->paginate($this->Tickets);
+        } else {
+            $tickets = $this->paginate($this->Tickets->find('all')->where(['user_id' => $identity['id']]));
+        }
         $this->set(compact('tickets'));
     }
 
