@@ -151,8 +151,8 @@
                     <span class="text-dark"><?= $this->Identity->get('name'); ?></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-                    <div class="dropdown-divider"></div>
+                    <!-- <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a> -->
+                    <!-- <div class="dropdown-divider"></div> -->
                         <?php echo $this->Html->link('<i class="align-middle me-1" data-feather="log-in"></i> Log out', 
                             [
                                 'controller' => 'Users',
