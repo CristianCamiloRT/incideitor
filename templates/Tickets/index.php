@@ -5,18 +5,20 @@
                 <div class="col-6">
                     <h5 class="card-title mb-0">Tickets</h5>
                 </div>
-                <div class="col-6 text-end">
-                    <?php echo $this->Html->link('Crear Ticket', 
-                        [
-                            'controller' => 'Tickets',
-                            'action' => 'add'
-                        ],
-                        [
-                            'escape' => false,
-                            'class' => 'btn btn-primary'
-                        ]
-                    );?>
-                </div>
+                <?php if ($this->Identity->get('role_id') == 1) : ?>
+                    <div class="col-6 text-end">
+                        <?php echo $this->Html->link('Crear Ticket', 
+                            [
+                                'controller' => 'Tickets',
+                                'action' => 'add'
+                            ],
+                            [
+                                'escape' => false,
+                                'class' => 'btn btn-primary'
+                            ]
+                        );?>
+                    </div>
+                <?php endif; ?>
             </div>
             <table class="table table-hover my-0">
                 <thead>
